@@ -19,8 +19,10 @@ TWITTER_LOGIN_PAGE = "https://twitter.com/i/flow/login"
 EMAIL = "Type your email "
 PASSWORD = "Type your password"
 USERNAME = "Type your username"
+ISP_name="Type your ISP name"
 min_intenet_speed_down = 12  # Type your internet download speed in Mb/s
 min_intenet_speed_up = 2  # Type your internet upload speed in Mb/s
+
 
 
 class InternetSpeedTwitterBot:
@@ -112,7 +114,7 @@ class InternetSpeedTwitterBot:
 
             if self.down < min_intenet_speed_down or self.up < min_intenet_speed_up:
 
-                msg = f"Hey IAM, why is my internet speed {self.down} Mbps down/ {self.up} Mbps up, when I paid for 12 Mbps down and at least 2 Mbps up????????"
+                msg = f"Hey {ISP_name}, why is my internet speed {self.down} Mbps down/ {self.up} Mbps up, when I paid for 12 Mbps down and at least 2 Mbps up????????"
                 txt_el = self.driver.find_element(
                     By.CSS_SELECTOR, 'div[class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"]')
                 txt_el.send_keys(msg)
